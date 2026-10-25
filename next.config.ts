@@ -3,8 +3,10 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  
+cacheComponents: false,
+partialPrefetching: false,
+
   turbopack: {
      root: __dirname,
     rules: {
