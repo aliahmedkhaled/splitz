@@ -1,0 +1,50 @@
+/* Phase 3 / FAQ — original SPLITZ visuals, isolated from other pages */
+.breadcrumb{display:flex;align-items:center;gap:12px;padding-block:24px;color:#abb2c0;font-size:12px}
+.breadcrumb a{color:#cbb9ff;text-decoration:none;font-weight:700}
+.breadcrumb a:hover{text-decoration:underline}
+.breadcrumb span:last-child{color:#fff}
+.hero{position:relative;overflow:hidden;background:radial-gradient(ellipse 55% 85% at 80% 35%,rgba(109,40,255,.22),transparent 72%),linear-gradient(145deg,#111018,#070809 75%);border-bottom:1px solid rgba(255,255,255,.09)}
+.hero:before{position:absolute;inset:0;content:"";pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.027) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.027) 1px,transparent 1px);background-size:58px 58px;mask-image:linear-gradient(90deg,transparent,black)}
+.heroGrid{position:relative;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(280px,.6fr);gap:clamp(24px,6vw,105px);align-items:center;padding-block:70px 85px}
+.title{max-width:800px;margin:25px 0 20px;font-size:clamp(43px,5.7vw,79px);font-weight:900;line-height:1.36;letter-spacing:-.035em}
+.title span{display:block;color:#aa8bff}
+.intro{max-width:760px;margin:0;color:#c0c6d2;font-size:clamp(15px,1.3vw,18px);line-height:2}
+.demoNote{display:inline-block;margin-top:28px;padding:10px 14px;background:rgba(109,40,255,.13);border:1px solid rgba(152,110,255,.36);color:#dfd0ff;font-size:12px;font-weight:750;line-height:1.8}
+.heroPanel{min-height:300px;position:relative;isolation:isolate;overflow:hidden;border:1px solid rgba(155,112,255,.66);background:linear-gradient(145deg,#2c155b,#13101e 64%,#0f1116);box-shadow:0 0 0 6px rgba(14,11,24,.8),0 25px 70px rgba(0,0,0,.5)}
+.heroPanel:before{content:"";position:absolute;z-index:-1;inset:18px;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:29px 29px}
+.heroPanel:after{content:"";position:absolute;z-index:-1;width:230px;height:230px;left:50%;top:48%;transform:translate(-50%,-50%);border-radius:50%;box-shadow:0 0 0 35px rgba(141,101,255,.075),0 0 0 75px rgba(141,101,255,.035);border:1px solid rgba(168,136,255,.35)}
+.panelTop,.panelBottom{position:absolute;display:flex;align-items:center;justify-content:space-between;gap:10px;inset-inline:20px;color:#e2d8ff;letter-spacing:.11em;font:700 12px/1.2 var(--font-barlow),Impact,sans-serif}
+.panelTop{top:18px}.panelTop span:last-child{font-size:25px;color:#b89aff}
+.panelBottom{bottom:18px}.panelBottom strong{font-size:22px;color:#f5efff}.panelBottom span{font-size:10px;color:#bbaadc}
+.panelGraphic{position:absolute;inset:22px 0;display:grid;place-items:center;font:900 210px/1 var(--font-barlow),Impact,sans-serif;color:#fff;text-shadow:0 0 35px rgba(144,100,255,.75),8px 12px 0 #6d28ff;transform:rotate(-10deg)}
+.faqContent{padding-block:72px 28px}
+.category{display:grid;grid-template-columns:minmax(180px,.37fr) minmax(0,1fr);gap:clamp(25px,5vw,80px);padding-block:45px 62px;border-bottom:1px solid rgba(255,255,255,.1)}
+.categoryHeading{min-width:0}
+.categoryIndex{display:inline-block;margin-bottom:20px;color:#a98aff;font:800 14px/1 var(--font-barlow),Impact,sans-serif;letter-spacing:.15em}
+.categoryHeading h2{margin:0 0 11px;font-size:clamp(24px,2.5vw,38px);font-weight:900;line-height:1.5}
+.categoryHeading p{margin:0;color:#afb7c7;font-size:13px;line-height:1.95}
+.accordion{display:grid;gap:12px;min-width:0}
+.item{overflow:hidden;background:linear-gradient(120deg,#191822,#12141a);border:1px solid rgba(255,255,255,.13);transition:border-color .2s,background .2s}
+.item[open]{border-color:rgba(165,124,255,.68);background:linear-gradient(120deg,#201834,#14141d)}
+.question{display:flex;align-items:center;gap:20px;min-height:82px;padding:22px 24px;cursor:pointer;list-style:none;color:#fff;font-size:15px;font-weight:800;line-height:1.8}
+.question::-webkit-details-marker{display:none}
+.question::marker{content:""}
+.question:focus-visible{outline:3px solid #bca3ff;outline-offset:-4px}
+.questionNum{flex-shrink:0;color:#a88cff;font:800 19px/1 var(--font-barlow),Impact,sans-serif}
+.questionText{flex:1;min-width:0}
+.expandIcon{flex-shrink:0;position:relative;display:block;width:30px;height:30px;border:1px solid rgba(162,130,255,.48);background:rgba(109,40,255,.17)}
+.expandIcon:before,.expandIcon:after{content:"";position:absolute;top:50%;left:50%;width:12px;height:2px;background:#d4c1ff;transform:translate(-50%,-50%)}
+.expandIcon:after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .2s ease}
+.item[open] .expandIcon:after{transform:translate(-50%,-50%) rotate(0deg)}
+.answer{padding:0 30px 26px;padding-inline-start:63px}
+.answer p{max-width:790px;margin:0;color:#bac2d0;font-size:14px;line-height:2.1}
+.cta{display:flex;align-items:center;justify-content:space-between;gap:35px;margin-block:85px 105px;padding:clamp(25px,4.5vw,55px);border:1px solid rgba(155,112,255,.5);background:radial-gradient(circle at 10% 40%,rgba(109,40,255,.22),transparent 65%),#161120}
+.cta h2{margin:16px 0;font-size:clamp(27px,3.3vw,46px);font-weight:900;line-height:1.5}
+.cta p{max-width:650px;margin:0;color:#c4c1d1;line-height:2;font-size:14px}
+.cta>a{flex-shrink:0}
+html[lang="en"] .title,html[lang="en"] .categoryHeading h2,html[lang="en"] .cta h2{font-family:var(--font-barlow),Impact,sans-serif;line-height:1.1}
+html[lang="en"] .title{font-size:clamp(56px,7vw,104px)}
+@media(max-width:900px){.heroGrid{grid-template-columns:minmax(0,1fr) minmax(245px,.55fr);gap:24px}.heroPanel{min-height:265px}.panelGraphic{font-size:175px}.category{grid-template-columns:minmax(150px,.36fr) minmax(0,1fr);gap:25px}}
+@media(max-width:700px){.heroGrid{grid-template-columns:1fr;padding-block:48px 65px}.heroPanel{width:min(100%,380px);justify-self:center;min-height:235px}.panelGraphic{font-size:160px}.category{grid-template-columns:1fr;gap:21px;padding-block:40px}.categoryIndex{margin-bottom:12px}.faqContent{padding-top:35px}.cta{flex-direction:column;align-items:flex-start;margin-block:55px 75px}}
+@media(max-width:420px){.breadcrumb{padding-block:17px}.heroGrid{padding-block:35px 55px}.title{font-size:clamp(38px,11vw,54px)}.heroPanel{min-height:210px}.question{padding:19px 14px;gap:12px;font-size:14px}.answer{padding:0 17px 22px;padding-inline-start:43px}.answer p{font-size:13px}.cta{padding:25px 20px}}
+@media(prefers-reduced-motion:reduce){.item,.expandIcon:after{transition:none}}

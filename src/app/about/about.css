@@ -1,0 +1,55 @@
+/* SPLITZ about — globally named, page-scoped styles. */
+.co-about-breadcrumb{display:flex;align-items:center;gap:12px;padding-block:25px;color:#a9aebe;font-size:12px}
+.co-about-breadcrumb a{color:#c5b2fc;text-decoration:none;font-weight:700}
+.co-about-breadcrumb a:hover{text-decoration:underline}
+.co-about-breadcrumb span:last-child{color:white}
+.co-about-hero{position:relative;overflow:hidden;background:radial-gradient(ellipse 58% 80% at 80% 30%,rgba(109,40,255,.18),transparent 70%),linear-gradient(135deg,#0c0b12,#070809 75%);border-bottom:1px solid rgba(255,255,255,.08)}
+.co-about-heroGrid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(325px,.88fr);align-items:center;gap:clamp(30px,5vw,85px);padding-block:65px 105px}
+.co-about-heroText{min-width:0}
+.co-about-demoBadge{display:table;margin-top:25px;padding:9px 13px;background:rgba(109,40,255,.1);border:1px solid rgba(139,92,246,.35);color:#d3c1ff;font-size:12px;font-weight:800}
+.co-about-heroTitle{margin:25px 0 21px;font-size:clamp(43px,5.2vw,80px);line-height:1.33;font-weight:900;letter-spacing:-.03em;overflow-wrap:anywhere}
+.co-about-heroTitle span{display:block;color:#a987ff}
+.co-about-lead{max-width:680px;color:#c3c7d3;font-size:clamp(15px,1.4vw,18px);line-height:2}
+.co-about-heroActions{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+.co-about-profileCard{position:relative;max-width:470px;width:100%;min-width:0;justify-self:center;padding:16px;background:linear-gradient(145deg,#2b1456,#0c0e15 47%,#171320);border:1px solid rgba(185,154,255,.64);box-shadow:0 0 0 7px rgba(16,14,25,.96),0 32px 90px rgba(0,0,0,.55),0 0 60px rgba(109,40,255,.18);transform:rotate(2deg)}
+.co-about-cardTop{display:flex;justify-content:space-between;align-items:center;gap:12px;font:700 12px/1.3 var(--font-barlow),Impact,sans-serif;letter-spacing:.14em;color:#e0d1ff}
+.co-about-cardTop span:last-child{font-size:28px;color:#a986ff}
+.co-about-artwork{position:relative;overflow:hidden;margin-top:13px;height:340px;background:radial-gradient(circle at 45% 42%,rgba(132,69,255,.32),transparent 64%),#14101f;border:1px solid rgba(172,143,244,.25)}
+.co-about-artworkGlow{position:absolute;width:220px;height:220px;left:15%;top:15%;border-radius:50%;filter:blur(40px);background:rgba(109,40,255,.3)}
+.co-about-artworkGrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(#000,transparent)}
+.co-about-artworkOrbit{position:absolute;width:285px;height:285px;top:17px;left:50%;transform:translateX(-50%) rotate(-22deg);border:1px solid rgba(170,136,255,.32);border-radius:50%}
+.co-about-artworkSymbol{position:relative;z-index:1;display:block;width:min(100%,390px);height:310px;margin:auto;filter:drop-shadow(0 18px 18px rgba(0,0,0,.5))}
+.co-about-artworkSerial{position:absolute;z-index:2;inset:auto auto 12px 14px;color:#bca9f2;font:700 11px/1 var(--font-barlow),Impact,sans-serif;letter-spacing:.15em}
+.co-about-artworkStamp{position:absolute;z-index:2;top:15px;right:15px;padding:6px 9px;border:1px solid #b18bff;color:#cbb7ff;font:700 11px/1.05 var(--font-barlow),Impact,sans-serif;letter-spacing:.09em;text-align:center}
+.co-about-cardBottom{padding:24px 12px 13px}
+.co-about-cardBottom>span{color:#b69cff;font-size:11px;font-weight:800}
+.co-about-cardBottom h2{margin:11px 0 8px;color:#fff;font-size:clamp(24px,2.8vw,34px);line-height:1.4;font-weight:900}
+.co-about-cardBottom p{color:#e0d8ed;font-size:13px;line-height:1.75;margin:0 0 15px}
+.co-about-cardBottom small{display:block;padding-top:13px;border-top:1px solid rgba(255,255,255,.15);color:#a9afbd;font-size:11px;line-height:1.7}
+.co-about-story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(30px,6vw,105px);padding-block:110px}
+.co-about-storyHeading h2,.co-about-sectionTitle,.co-about-next h2{margin:19px 0 0;font-size:clamp(30px,3.7vw,54px);line-height:1.4;font-weight:900}
+.co-about-storyBody{min-width:0}
+.co-about-storyBody p{color:#b9becb;font-size:14px;line-height:2.05;margin:0 0 19px}
+.co-about-storyBody .co-about-storyLead{color:white;font-size:18px;font-weight:750;line-height:1.95}
+.co-about-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.co-about-pills span{padding:10px 14px;background:#171326;border:1px solid rgba(139,92,246,.4);color:#d9ceff;font-size:12px;font-weight:750}
+.co-about-approach{padding-block:105px 118px;border-block:1px solid rgba(255,255,255,.07);background:#111217}
+.co-about-sectionIntro{margin:15px 0 35px;max-width:710px;color:#adb4c4;font-size:14px;line-height:1.9}
+.co-about-principleGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.co-about-principleCard{min-width:0;padding:30px;background:linear-gradient(155deg,#1c1b28,#121317);border:1px solid rgba(255,255,255,.12);border-top:3px solid #7e46ff}
+.co-about-principleNumber{color:#a381ff;font:900 50px/.95 var(--font-barlow),Impact,sans-serif}
+.co-about-principleCard h3{margin:26px 0 11px;font-size:22px;font-weight:900}
+.co-about-principleCard p{margin:0;color:#b6bdca;font-size:13px;line-height:1.95}
+.co-about-next{display:flex;align-items:center;justify-content:space-between;gap:40px;margin-block:105px;padding:clamp(26px,5vw,55px);border:1px solid rgba(147,106,255,.48);background:radial-gradient(circle at 8% 40%,rgba(109,40,255,.2),transparent 65%),#151021}
+.co-about-next>div{min-width:0}
+.co-about-next h2{font-size:clamp(27px,3vw,42px)}
+.co-about-next p{max-width:750px;margin:18px 0;color:#c5c0d3;font-size:14px;line-height:1.95}
+.co-about-next small{color:#a7a5b5;font-size:11px;line-height:1.8}
+.co-about-next>a{flex-shrink:0}
+html[lang="en"] .co-about-heroTitle,html[lang="en"] .co-about-storyHeading h2,html[lang="en"] .co-about-sectionTitle,html[lang="en"] .co-about-next h2,html[lang="en"] .co-about-principleCard h3{font-family:var(--font-barlow),Impact,sans-serif;line-height:1.09}
+html[lang="en"] .co-about-heroTitle{font-size:clamp(60px,7vw,108px)}
+html[lang="en"] .co-about-storyHeading h2,html[lang="en"] .co-about-sectionTitle{font-size:clamp(37px,5vw,64px)}
+@media(max-width:950px){.co-about-heroGrid{grid-template-columns:minmax(0,1fr) minmax(300px,.9fr);gap:25px}.co-about-profileCard{transform:none}.co-about-heroTitle{font-size:clamp(38px,5vw,65px)}.co-about-artwork{height:290px}.co-about-artworkSymbol{height:265px}.co-about-story{padding-block:80px}}
+@media(max-width:760px){.co-about-heroGrid,.co-about-story{grid-template-columns:1fr}.co-about-heroGrid{padding-block:45px 75px}.co-about-heroTitle{font-size:clamp(42px,9vw,63px)}.co-about-profileCard{max-width:440px;margin-top:14px}.co-about-story{gap:20px;padding-block:75px}.co-about-principleGrid{grid-template-columns:1fr}.co-about-approach{padding-block:70px 80px}.co-about-next{flex-direction:column;align-items:flex-start;margin-block:70px}}
+@media(max-width:420px){.co-about-breadcrumb{gap:8px;padding-block:17px}.co-about-heroGrid{padding-block:32px 65px}.co-about-demoBadge{margin-top:19px}.co-about-profileCard{padding:10px}.co-about-artwork{height:260px}.co-about-artworkSymbol{height:245px}.co-about-heroActions>a{width:100%}.co-about-principleCard{padding:23px}.co-about-next{padding:24px 19px}}
+@media(prefers-reduced-motion:reduce){.co-about-profileCard{transform:none}}

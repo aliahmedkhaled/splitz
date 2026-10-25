@@ -1,0 +1,354 @@
+/* SPLITZ Portfolio — Step 14: progressive, accessible motion polish.
+   Scoped to .coach-page, so the subpages keep their existing CSS. */
+
+/* A glassy, sticky header that keeps navigation in view while scrolling. */
+.coach-page > .site-header {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 60;
+  background: rgb(7 8 9 / 87%);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 35px rgb(0 0 0 / 12%);
+}
+
+/* A stronger indication of the current page for mouse and keyboard users. */
+.coach-page .site-header__desktop-nav a[aria-current="page"] {
+  color: #e2d5ff;
+  text-decoration: underline;
+  text-decoration-color: var(--coach-violet);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
+}
+
+/* First fold: quiet, editorial entrances. Use individual translate so
+   existing card rotations and responsive layout transforms are preserved. */
+.coach-page .hero__copy {
+  animation: cos-intro-copy 680ms cubic-bezier(.2,.7,.2,1) both;
+}
+.coach-page .hero__visual {
+  animation: cos-intro-visual 840ms 90ms cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes cos-intro-copy {
+  from { opacity: 0; translate: 0 18px; }
+  to { opacity: 1; translate: 0 0; }
+}
+@keyframes cos-intro-visual {
+  from { opacity: 0; translate: 0 24px; }
+  to { opacity: 1; translate: 0 0; }
+}
+
+/* Low-amplitude ambient glow; does not move the actual content. */
+.coach-page .hero__halo {
+  animation: cos-halo-breathe 8s ease-in-out infinite alternate;
+}
+@keyframes cos-halo-breathe {
+  from { opacity: .65; scale: .98; }
+  to { opacity: 1; scale: 1.08; }
+}
+
+/* Section entrances are opt-in, and only applied when JS explicitly marks
+   off-screen elements. Without JS everything remains visible. */
+.coach-page [data-coach-motion="pending"] {
+  opacity: 0;
+  translate: 0 18px;
+}
+.coach-page [data-coach-motion="visible"] {
+  opacity: 1;
+  translate: 0 0;
+  transition: opacity 650ms cubic-bezier(.2,.7,.2,1),
+              translate 650ms cubic-bezier(.2,.7,.2,1);
+}
+
+/* Preserve existing card hover transform, border and shadow transitions. */
+.coach-page .training-card[data-coach-motion="visible"] {
+  transition: opacity 650ms ease, translate 650ms ease,
+              transform 240ms ease, border-color 240ms ease,
+              box-shadow 240ms ease;
+}
+.coach-page .training-card:nth-child(2)[data-coach-motion="visible"],
+.coach-page .training-card:nth-child(5)[data-coach-motion="visible"] {
+  transition-delay: 60ms;
+}
+.coach-page .training-card:nth-child(3)[data-coach-motion="visible"],
+.coach-page .training-card:nth-child(6)[data-coach-motion="visible"] {
+  transition-delay: 120ms;
+}
+.coach-page .steps-grid > article:nth-child(2)[data-coach-motion="visible"] {
+  transition-delay: 90ms;
+}
+.coach-page .steps-grid > article:nth-child(3)[data-coach-motion="visible"] {
+  transition-delay: 180ms;
+}
+
+/* Interactive detailing is reserved for pointer devices, not touch input. */
+@media (hover: hover) and (pointer: fine) {
+  .coach-page .hero-product {
+    transition: transform 600ms cubic-bezier(.2,.7,.2,1),
+                box-shadow 600ms ease;
+  }
+  .coach-page .hero__visual:hover .hero-product {
+    transform: rotate(2deg) translateY(-7px);
+    box-shadow: 0 0 0 7px rgb(8 8 11 / 93%),
+                0 0 0 9px rgb(118 62 242 / 22%),
+                0 40px 72px rgb(0 0 0 / 85%),
+                0 0 70px rgb(109 40 255 / 35%);
+  }
+  .coach-page .training-card__shine {
+    transition: transform 750ms cubic-bezier(.2,.7,.2,1);
+  }
+  .coach-page .training-card:hover .training-card__shine {
+    transform: translateX(280%) rotate(27deg);
+  }
+  .coach-page .button-primary {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  .coach-page .button-primary::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(105deg, transparent 25%, rgb(255 255 255 / 16%) 48%, transparent 72%);
+    translate: -120% 0;
+    transition: translate 550ms ease;
+    pointer-events: none;
+  }
+  .coach-page .button-primary:hover::after { translate: 120% 0; }
+}
+
+/* Strong focus is part of visual polish, not an afterthought. */
+.coach-page :is(a, button):focus-visible {
+  outline: 3px solid #c4a5ff;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coach-page .hero__copy,
+  .coach-page .hero__visual,
+  .coach-page .hero__halo {
+    animation: none !important;
+  }
+  .coach-page [data-coach-motion] {
+    opacity: 1 !important;
+    translate: none !important;
+    transition: none !important;
+  }
+  .coach-page .hero-product,
+  .coach-page .training-card__shine {
+    transition: none !important;
+  }
+}
+
+
+/* SPLITZ Portfolio — Step 16: mobile-first finish.
+   Enhancements intentionally scoped to the homepage; existing components,
+   translations, navigation and subpage CSS are untouched. */
+
+/* Consistent desktop rhythm: editorial spacing without a taller first fold. */
+.coach-page .hero__content {
+  min-height: min(720px, calc(100svh - 86px));
+}
+.coach-page .hero__description {
+  text-wrap: pretty;
+}
+.coach-page .section-heading h2,
+.coach-page .about-panel h2 {
+  text-wrap: balance;
+}
+.coach-page .section-heading > div {
+  min-width: 0;
+}
+.coach-page .about-panel > p {
+  max-width: 62ch;
+}
+
+/* Tablets: avoid cramped copy and a squeezed visual at intermediate sizes. */
+@media (min-width: 821px) and (max-width: 1100px) {
+  .coach-page .hero__content {
+    gap: clamp(18px, 2vw, 30px);
+    min-height: 570px;
+  }
+  .coach-page .hero__title {
+    font-size: clamp(40px, 4.7vw, 62px);
+    line-height: 1.22;
+  }
+  .coach-page .hero__visual {
+    width: min(100%, 475px);
+  }
+  .coach-page .hero__features {
+    gap: 10px 16px;
+  }
+}
+
+/* When navigation changes to its mobile layout, preserve breathing room. */
+@media (max-width: 820px) {
+  .coach-page .hero__content {
+    min-height: 0;
+    gap: clamp(12px, 3vw, 28px);
+    padding-block: 62px 56px;
+  }
+  .coach-page .hero__copy {
+    max-width: 680px;
+  }
+  .coach-page .hero__visual {
+    width: min(100%, 480px);
+  }
+  .coach-page .section-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .coach-page .steps-grid > article {
+    padding: clamp(22px, 4vw, 34px);
+  }
+  .coach-page .mobile-nav a {
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Phones: reduce visual noise and prioritize the title, CTA and program art. */
+@media (max-width: 560px) {
+  html { scroll-padding-top: 86px; }
+  .coach-page .hero__content {
+    padding-block: 47px 40px;
+    gap: 8px;
+  }
+  .coach-page .hero__title {
+    margin-block: 18px 16px;
+    font-size: clamp(38px, 9.5vw, 54px);
+    line-height: 1.26;
+    letter-spacing: -0.025em;
+    overflow-wrap: anywhere;
+  }
+  html[lang="en"] .coach-page .hero__title {
+    font-size: clamp(49px, 11.3vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+  }
+  .coach-page .hero__description {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+  .coach-page .hero__buttons {
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .coach-page .button-primary,
+  .coach-page .button-secondary {
+    min-height: 52px;
+    padding-inline: 16px;
+  }
+  .coach-page .hero__features {
+    margin-top: 24px;
+    padding-top: 22px;
+    gap: 12px 15px;
+    font-size: 11px;
+  }
+  .coach-page .hero__visual {
+    height: clamp(335px, 106vw, 420px);
+    max-width: 440px;
+    margin-top: 20px;
+  }
+  .coach-page .hero__halo {
+    inset-inline: -2%;
+  }
+  .coach-page .hero__bottomline-inner {
+    line-height: 1.6;
+  }
+  .coach-page .programs-section,
+  .coach-page .about-section {
+    padding-block: 68px;
+  }
+  .coach-page .how-section {
+    padding-block: 68px;
+  }
+  .coach-page .section-heading {
+    gap: 11px;
+    margin-bottom: 26px;
+  }
+  .coach-page .section-heading h2,
+  .coach-page .about-panel h2 {
+    font-size: clamp(30px, 8vw, 43px);
+    line-height: 1.3;
+  }
+  html[lang="en"] .coach-page .section-heading h2,
+  html[lang="en"] .coach-page .about-panel h2 {
+    line-height: 1.07;
+  }
+  .coach-page .section-heading__tag {
+    font-size: 11px;
+  }
+  .coach-page .program-grid {
+    gap: 20px;
+  }
+  .coach-page .training-card__body h3 {
+    overflow-wrap: anywhere;
+  }
+  .coach-page .steps-grid {
+    gap: 12px;
+  }
+  .coach-page .steps-grid h3 {
+    margin-top: 16px;
+  }
+  .coach-page .about-panel {
+    gap: 12px;
+  }
+  .coach-page .site-footer__inner {
+    gap: 14px;
+  }
+}
+
+/* Extra-narrow devices: the poster remains legible without side-scrolling. */
+@media (max-width: 380px) {
+  .coach-page .hero__visual {
+    height: 345px;
+    margin-top: 10px;
+  }
+  .coach-page .hero-product {
+    inset: 27px 21px 29px 24px;
+  }
+  .coach-page .hero-product__title {
+    font-size: clamp(40px, 12vw, 51px);
+  }
+  .coach-page .stack-card--back {
+    width: 43%;
+  }
+  .coach-page .training-card__poster-title {
+    font-size: clamp(38px, 11.4vw, 45px);
+  }
+  .coach-page .training-card__poster-top {
+    padding-inline: 12px;
+  }
+  .coach-page .training-card__poster-bottom {
+    inset-inline: 8px;
+    font-size: 11px;
+  }
+  .coach-page .training-card__metadata {
+    gap: 2px;
+  }
+  .coach-page .training-card__metadata > div + div {
+    padding-inline-start: 7px;
+  }
+}
+
+/* Touchscreens should not keep desktop hover lift after tapping. */
+@media (hover: none) {
+  .coach-page .training-card:hover {
+    transform: none;
+  }
+  .coach-page .button-primary:hover {
+    transform: none;
+  }
+}
+
+/* Visual polish never hides focus or suppresses accessibility preferences. */
+@media (prefers-reduced-motion: reduce) {
+  .coach-page .hero__visual,
+  .coach-page .hero__copy {
+    animation: none !important;
+  }
+}
